@@ -74,29 +74,50 @@ class Graph:
         #if not in visited:
         #visit, add to visited, and add neighbors to stack  
         s = Stack()
-        #pop onto queue
+        #pop onto stack
         s.push(starting_vertex)
         visited =set()
 
-        #while queue isnt empty
+        #while stack isnt empty
         while s.size() > 0:
             vert =s.pop()
         #if node not in visited, add to visited(visit)
             if vert not in visited:
                 visited.add(vert)
                 print(vert)
-                #add neighbors to queue
+                #add neighbors to stack
                 for next_vert in self.get_neighbors(vert):
                     s.push(next_vert)
 
-    def dft_recursive(self, starting_vertex):
+    def dft_recursive(self, starting_vertex, visited =None):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
 
         This should be done using recursion.
         """
-        pass  # TODO
+        #base case: empty stack
+        #create stack to pop nodes onto
+        #add starting node to stack
+        #create a set for visisted nodes
+        #--recursive loop --
+        #while stack not empty:
+        #remove first node
+        #if not in visited:
+        #visit, add to visited, and add neighbors to stack  
+
+        #while stack is empty
+        
+        if visited is None:
+            visited = set()
+
+        visited.add(starting_vertex)
+        print(starting_vertex)
+
+        for vert in self.vertices[starting_vertex]:
+            if vert not in visited:
+                self.dft_recursive(vert, visited)
+                
 
     def bfs(self, starting_vertex, destination_vertex):
         """
@@ -105,6 +126,7 @@ class Graph:
         breath-first order.
         """
         pass  # TODO
+
 
     def dfs(self, starting_vertex, destination_vertex):
         """
