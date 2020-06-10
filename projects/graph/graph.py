@@ -58,9 +58,6 @@ class Graph:
                 for next_vert in self.get_neighbors(vert):
                     q.enqueue(next_vert)
 
-        
-
-
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
@@ -154,8 +151,6 @@ class Graph:
                 q.enqueue(neighbor_path)
 
 
-
-
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
@@ -190,14 +185,7 @@ class Graph:
         This should be done using recursion.
         """
 
-        
-        if visited is None:
-            visited =set()
-            
-        visited.add(starting_vertex)
-        print(starting_vertex)
            
-
 
         for vertex in self.vertices[starting_vertex]:
             if vertex not in visited:
@@ -205,12 +193,7 @@ class Graph:
             
 
 
-        
-
-
-
-
-
+  
 
 
 if __name__ == '__main__':

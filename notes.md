@@ -58,6 +58,15 @@ def bfs(self, starting_vertex_id, target_vertex_id):
               # APPEND THE NEIGHOR TO THE BACK
 
 
+How to Solve Graph Problems
+===========================
+
+1.Translate problem into graph terminology(edges, vertices)
+
+2.Build the graph
+
+3.Traverse/Search
+
 
 
 
