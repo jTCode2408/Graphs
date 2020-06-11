@@ -78,9 +78,60 @@ class SocialGraph:
         The key is the friend's ID and the value is the path.
         """
         #bfs for traversal(shortest path)
-        #keep track of paths
+        #keep track of shortest paths taken to each node
         #keep track of friendships
-        #
+        # visited-- key=user_id..value =  path from starting user to friend user in an array
+        '''CLASS SOLUTION'''
+        q = Queue()
+        #key is user, val is path to user
+        visited = {}
+        #start with start user
+        q.enqueue([user_id])
+
+        while q.size() >0:
+            #dequeue first path
+            #look at last elelment in path
+            #check if visited
+            #if not, do traversal
+            path = q.dequeue()
+            #want to explore to last elemnt in path
+            v = path[-1]
+
+            if v not in visited:
+                #if not visited already, add to visited. remember path so far
+                visited[v] = path
+                #check neighbors(friendships of user)
+                for neighbor in self.friendships[v]:
+                    path_copy = list(path)
+                    path_copy.append(neighbor)
+                    q.enqueue(path_copy)
+                   # q.enqueue(path + [neighbor]) #same as above in 1 line
+
+        return visited
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  #MY ATTEMPT
+'''
         self.last_id = 0
         self.friendships = {}
         visited = {}  # Note that this is a dictionary, not a set
@@ -95,10 +146,9 @@ class SocialGraph:
                 visited[current]=current
                 
                 if current == user_id:
-                    return path
+                    return path <--dont need this if?
 
-
-                for friend in self.add_friendship(current):
+                for friend in self.add_friendship(current): <--square bracket SHOULD BE: self.friendships[current]
                     path_copy = list(path)
                     path_copy.append(friend)
                     q.enqueue(path_copy)
@@ -107,6 +157,7 @@ class SocialGraph:
 
 
         return visited
+'''
 
 
 if __name__ == '__main__':
