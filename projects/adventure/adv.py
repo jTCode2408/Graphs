@@ -8,6 +8,15 @@ from ast import literal_eval
 # Load world
 world = World()
 
+#dft(stack)
+#need to be able to go back!
+#keep track of path(visited exits)
+#keep track of room in
+#keep track of directions(exits) rooms visited(for going back)---room has [get_exits] & [get_room_in_directions] fn
+#player has [travel] fn to move
+#
+#
+
 
 # You may uncomment the smaller graphs for development and testing purposes.
 # map_file = "maps/test_line.txt"
@@ -21,13 +30,13 @@ room_graph=literal_eval(open(map_file, "r").read())
 world.load_graph(room_graph)
 
 # Print an ASCII map
-world.print_rooms()
+#world.print_rooms()
 
 player = Player(world.starting_room)
 
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
-traversal_path = ['n', 's', 'e', 'w']
+traversal_path = []
 
 
 
