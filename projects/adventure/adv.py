@@ -63,9 +63,9 @@ while len(visited) < len(world.rooms):
       #check exits in room
     exits = player.current_room.get_exits()
     moves = []
-    #keep track of direction moved in(path)
+    #keep track of moves
 #keep track of exits for room
-#if room move direction hasnt been visited, visit & add path
+#if room move direction hasnt been visited, visit(Add to visited) --add exits to moves
     for exit in exits:
         if exit is not None and player.current_room.get_room_in_direction(exit) not in visited:
             moves.append(exit)
@@ -80,6 +80,7 @@ while len(visited) < len(world.rooms):
         player.travel(moves[random_dir])
          #add to paths
         paths.push(moves[random_dir])
+        traversal_path.append(moves[random_dir])
     #if no exits: go back!
 #to go back:
 #no exits in room
@@ -89,12 +90,7 @@ while len(visited) < len(world.rooms):
         go_back = paths.pop()
         #get last move, travel that way
         player.travel(opposite_way(go_back))
-
-
-    
-
-
-
+        traversal_path.append(opposite_way(go_back))
 
 
 
