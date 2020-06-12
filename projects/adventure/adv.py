@@ -1,7 +1,7 @@
 from room import Room
 from player import Player
 from world import World
-from util import Stack()
+from util import Stack
 import random
 from ast import literal_eval
 
@@ -51,6 +51,7 @@ def opposite_way(direction):
     elif direction == 'e':
         return 'w'
 
+
 #keep track of visited rooms(set)
 visited = set()
 #keep path in stack
@@ -69,7 +70,7 @@ while len(visited) < len(world.rooms):
 #no exits in room
 #go opposite of last move
 #
-
+    pass
 
 
 
