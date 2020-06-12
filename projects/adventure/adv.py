@@ -1,7 +1,7 @@
 from room import Room
 from player import Player
 from world import World
-
+from util import Stack()
 import random
 from ast import literal_eval
 
@@ -15,21 +15,6 @@ world = World()
 #keep track of room in
 #keep track of directions(exits) rooms visited(for going back)---room has [get_exits] & [get_room_in_directions] fn
 #player has [travel] fn to move
-#TODO:
-#make Stack class
-#keep path in stack
-#instead of .size()>0, rooms len for all rooms
-#while rooms not visited:
-#check exits in room
-#keep track of exits for room
-#keep track of visited rooms(set)
-#check for directions
-#HOW TO DETERMINE DIRECTION? (input? ran?)
-#keep track of direction moved in(path)
-#traversal path[] =path
-#to go back:
-#no exits
-#use opposite of last direction to go back
 
 
 # You may uncomment the smaller graphs for development and testing purposes.
@@ -52,13 +37,38 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
-#TODO--Stack code
 #TODO--Traversal code
 
 
+#use opposite of last direction entered to go back
+def opposite_way(direction):
+    if direction == 'n':
+        return 's'
+    elif direction =='s':
+        return 'n'
+    elif direction =='w':
+        return 'e'
+    elif direction == 'e':
+        return 'w'
 
+#keep track of visited rooms(set)
+visited = set()
+#keep path in stack
+paths= Stack()
 
-
+#rooms len for all rooms checked
+#while rooms not visited:
+while len(visited) < len(world.rooms):
+    #check exits in room
+#keep track of exits for room
+#check for directions
+#HOW TO DETERMINE DIRECTION? (input? ran?)
+#keep track of direction moved in(path)
+#traversal path[] =path
+#to go back:
+#no exits in room
+#go opposite of last move
+#
 
 
 
