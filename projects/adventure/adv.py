@@ -60,17 +60,38 @@ paths= Stack()
 #rooms len for all rooms checked
 #while rooms not visited:
 while len(visited) < len(world.rooms):
-    #check exits in room
+      #check exits in room
+    exits = player.current_room.get_exits()
+    moves = []
+    #keep track of direction moved in(path)
 #keep track of exits for room
-#check for directions
-#HOW TO DETERMINE DIRECTION? (input? ran?)
-#keep track of direction moved in(path)
-#traversal path[] =path
+#if room move direction hasnt been visited, visit & add path
+    for exit in exits:
+        if exit is not None and player.current_room.get_room_in_direction(exit) not in visited:
+            moves.append(exit)
+#add room to visited
+    visited.add(player.current_room)
+   
+   #check for directions
+     #get ran direction from omves avail
+    if len(moves) >0:
+        random_dir = random.randint(0, len(moves) -1)
+  #visit room
+        player.travel(moves[random_dir])
+         #add to paths
+        paths.push(moves[random_dir])
+    #if no exits: go back!
 #to go back:
 #no exits in room
 #go opposite of last move
-#
-    pass
+#add path?
+    else:
+        go_back = paths.pop()
+        #get last move, travel that way
+        player.travel(opposite_way(go_back))
+
+
+    
 
 
 
